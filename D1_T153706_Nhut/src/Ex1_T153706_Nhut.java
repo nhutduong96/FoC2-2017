@@ -53,7 +53,10 @@ public class Ex1_T153706_Nhut extends JFrame{
 				char[] passArray = txtPassword.getPassword();
 				String password = new String(passArray);
 				if(userName.equals("admin")&& password.equals("root")){
-						JOptionPane.showMessageDialog(Ex1_T153706_Nhut.this,"Hello"+userName);
+//						JOptionPane.showMessageDialog(Ex1_T153706_Nhut.this,"Hello"+userName);
+					MainWindow mainGUI = new MainWindow();
+					mainGUI.setVisible(true);
+					Ex1_T153706_Nhut.this.setVisible(false);
 				}else{
 					JOptionPane.showMessageDialog(Ex1_T153706_Nhut.this,"Fail :(("+userName);
 

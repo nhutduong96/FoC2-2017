@@ -80,7 +80,7 @@ public class Ex1_T153706_Nhut extends JFrame{
 		Ex1_T153706_Nhut gui = new Ex1_T153706_Nhut();
 		gui.setVisible(true);
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		gui.setSize(400,300);
+		gui.setSize(240,300);
 		
 	}
 }

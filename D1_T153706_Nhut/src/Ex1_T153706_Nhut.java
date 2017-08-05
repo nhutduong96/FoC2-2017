@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 public class Ex1_T153706_Nhut extends JFrame{
 	//Field - Instance Variable
 	JLabel lblUsername;
@@ -23,7 +25,7 @@ public class Ex1_T153706_Nhut extends JFrame{
 		lblUsername.setLocation(30,50);
 		lblUsername.setSize(80,30);
 		getContentPane().add(lblUsername);
-		JTextField txtUsername = new JTextField ();
+		txtUsername = new JTextField ();
 		txtUsername.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -32,6 +34,28 @@ public class Ex1_T153706_Nhut extends JFrame{
 			@Override
 			public void focusLost(FocusEvent e) {
 				txtUsername.setBackground(Color.WHITE);
+			}
+		});
+		txtUsername.addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				if (e.getKeyCode()== KeyEvent.VK_ENTER){
+					login();
+				}
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 		txtUsername.setLocation(30,80);
@@ -49,18 +73,7 @@ public class Ex1_T153706_Nhut extends JFrame{
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String userName = txtUsername.getText();
-				char[] passArray = txtPassword.getPassword();
-				String password = new String(passArray);
-				if(userName.equals("admin")&& password.equals("root")){
-//						JOptionPane.showMessageDialog(Ex1_T153706_Nhut.this,"Hello"+userName);
-					MainWindow mainGUI = new MainWindow();
-					mainGUI.setVisible(true);
-					Ex1_T153706_Nhut.this.setVisible(false);
-				}else{
-					JOptionPane.showMessageDialog(Ex1_T153706_Nhut.this,"Fail :(("+userName);
-
-				}
+				login();
 			}
 		});
 		btnLogin.setBounds(63, 212, 89, 23);
@@ -71,6 +84,17 @@ public class Ex1_T153706_Nhut extends JFrame{
 		getContentPane().add(lblLogin);
 		
 		txtPassword = new JPasswordField();
+		txtPassword.addFocusListener(new FocusAdapter() {
+			//
+			@Override
+			public void focusLost(FocusEvent arg0) {
+				txtPassword.setBackground(Color.BLUE);
+			}
+			@Override
+			public void focusGained(FocusEvent arg0){
+				
+			}
+		});
 		txtPassword.setBounds(30, 136, 158, 20);
 		getContentPane().add(txtPassword);
 		setLocationRelativeTo(null);
@@ -82,6 +106,21 @@ public class Ex1_T153706_Nhut extends JFrame{
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gui.setSize(400,300);
 		
+	}
+
+	private void login() {
+		String userName = txtUsername.getText();
+		char[] passArray = txtPassword.getPassword();
+		String password = new String(passArray);
+		if(userName.equals("admin")&& password.equals("root")){
+//						JOptionPane.showMessageDialog(Ex1_T153706_Nhut.this,"Hello"+userName);
+			MainWindow mainGUI = new MainWindow();
+			mainGUI.setVisible(true);
+			Ex1_T153706_Nhut.this.setVisible(false);
+		}else{
+			JOptionPane.showMessageDialog(Ex1_T153706_Nhut.this,"Fail :((");
+
+		}
 	}
 }
 

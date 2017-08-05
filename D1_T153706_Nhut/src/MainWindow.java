@@ -35,6 +35,9 @@ public class MainWindow extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	int n = 1;
+	int x = 20;
+	int y = 20;
 	public MainWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -81,12 +84,21 @@ public class MainWindow extends JFrame {
 		// Xu li su kien
 		mntmNew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0){
-				JInternalFrame newWindow = new JInternalFrame("new window 1", true, true, true);
+				JInternalFrame newWindow = new JInternalFrame("new window"+ n , true, true, true);
 				newWindow.setVisible(true);
 				newWindow.setSize(300, 300);
 				contentPane.add(newWindow);
+				//newWindow.toFront();
+				newWindow.setBounds(x , y, 300, 300);
+				x = x + 20;
+				y = y + 20;
+				n = n + 1;
 				
 			}
+		
+		
+			
+			
 		});
 	}
 

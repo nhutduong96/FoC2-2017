@@ -88,7 +88,7 @@ public class MainWindow extends JFrame {
 				newWindow.setVisible(true);
 				newWindow.setSize(300, 300);
 				contentPane.add(newWindow);
-				//newWindow.toFront();
+				newWindow.toFront();
 				newWindow.setBounds(x , y, 300, 300);
 				x = x + 20;
 				y = y + 20;

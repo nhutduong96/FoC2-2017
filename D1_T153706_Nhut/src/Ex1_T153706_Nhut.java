@@ -39,7 +39,7 @@ public class Ex1_T153706_Nhut extends JFrame{
 		getContentPane().add(txtUsername);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(30, 111, 46, 14);
+		lblPassword.setBounds(30, 111, 66, 14);
 		getContentPane().add(lblPassword);
 		
 		JCheckBox chckbxRememberMe = new JCheckBox("Remember Me");

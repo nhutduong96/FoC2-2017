@@ -1,4 +1,4 @@
-package foc2;
+package data;
 
 public class Category {
 	private int categoryId;
@@ -23,6 +23,13 @@ public class Category {
 	@Override
 	public String toString() {
 		return categoryName ;
+	}
+	
+	public Category (){};
+	public Category(int categoryId, String categoryName) {
+		super();
+		this.categoryId = categoryId;
+		this.categoryName = categoryName;
 	}
 	
 	

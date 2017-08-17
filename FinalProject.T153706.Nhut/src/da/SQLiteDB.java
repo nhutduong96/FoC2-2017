@@ -62,7 +62,7 @@ public class SQLiteDB {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+	//
 	public void update(String name, int categoryid, double pPrice, int pUnitInStock, int productid){
 		String sql = "UPDATE products set productname = ?, categoryid = ?, unitprice = ?, unitinstock = ? "
 				+ "WHERE(productid = ?)";
